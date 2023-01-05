@@ -1,3 +1,6 @@
+#Objectives; To find states that have a lower murder rate.
+#Knowing the usage the functions 'which()', 'match()', or '%in%'
+
 library(dslabs)
 data("murders")
 
@@ -21,4 +24,20 @@ safe <- murder_rate <= 1
 # defining an index and identifying states with both conditions true
 index <- safe & west
 murders$state[index]
-# the ouput; "Hawaii"  "Idaho"   "Oregon"  "Utah"    "Wyoming"
+# the output: "Hawaii"  "Idaho"   "Oregon"  "Utah"    "Wyoming"
+
+# to determine the murder rate in Massachusetts we may do the following
+ind <- which(murders$state == "Massachusetts")
+murder_rate[ind]
+# the output: 1.802179
+
+# to obtain the indices and subsequent murder rates of New York, Florida, Texas, we do:
+ind <- match(c("New York", "Florida", "Texas"), murders$state)
+ind
+#output:33 10 44
+murder_rate[ind]
+#output:2.667960 3.398069 3.201360
+
+# to see if Boston, Dakota, and Washington are states
+c("Boston", "Dakota", "Washington") %in% murders$state
+#output:FALSE FALSE  TRUE
