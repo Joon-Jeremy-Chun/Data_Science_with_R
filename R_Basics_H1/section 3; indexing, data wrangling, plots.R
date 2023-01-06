@@ -1,5 +1,5 @@
-#Objectives; To find states that have a lower murder rate.
-#Knowing the usage the functions 'which()', 'match()', or '%in%'
+#Objectives: To find states that have a lower murder rate.
+#Knowing the usage the functions 'which()', 'match()', or '%in%'.
 
 library(dslabs)
 data("murders")
