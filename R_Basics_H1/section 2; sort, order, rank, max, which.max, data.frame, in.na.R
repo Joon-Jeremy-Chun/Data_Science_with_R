@@ -1,3 +1,5 @@
+#Objectives: To know operation of 'sort' and 'order'
+
 library(dslabs)
 data("murders")
 

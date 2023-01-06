@@ -1,3 +1,5 @@
+#Objectives: To understand vectors
+
 # 'concatenate' to entries by the function c
 codes <- c(380,124,818)
 # with out the quotes, R will recevid the codes as a variable

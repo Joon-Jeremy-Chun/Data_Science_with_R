@@ -1,3 +1,5 @@
+# Objectives: simple math operation.
+
 a <- 2
 b <- -1
 c <- -4

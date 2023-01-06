@@ -1,3 +1,5 @@
+#Objectives: To understand data types
+
 library(dslabs)
 data(murders)
 a<-1
