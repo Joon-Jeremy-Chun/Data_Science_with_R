@@ -19,15 +19,15 @@ library(dslabs)
 data(murders)
 murder_rate <- murders$total / murders$population*100000
 ind <- which.min(murder_rate)
-if(murder_rate[ind] < 0.5){print(murders$state[ind])} else{print("No state has murder rate that low")}
+if(murder_rate[ind] < 0.5){print(murders$state[ind])} else{print("No state has a murder rate that low.")}
 #Outcome:"Vermont"
 
-if(murder_rate[ind] < 100000){print(murders$state[ind])} else{print("No state has murder rate that low")}
+if(murder_rate[ind] < 100000){print(murders$state[ind])} else{print("No state has a murder rate that low.")}
 #Outcome:"Vermont"
-#!!!Note: this simple if-else statement complete by the first element. If you want recall all elements should use with repeating algorithm, 'for loops.'
+#!!!Note: this example 'if-else' statement may compute one element. If you want recall all elements should use with repeating algorithm, 'for loops.'
 
-if(murder_rate[ind] < 0.1){print(murders$state[ind])} else{print("No state has murder rate that low")}
-#Outcome:"No state has murder rate that low"
+if(murder_rate[ind] < 0.1){print(murders$state[ind])} else{print("No state has a murder rate that low.")}
+#Outcome:"No state has a murder rate that low."
 
 
 #'ifelse()' function works similarly to and if-else conditional -> 'ifelse(condition, if ture, else)'

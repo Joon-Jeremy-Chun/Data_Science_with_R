@@ -39,3 +39,23 @@ head(data.frame(s_n = s_n, formula = n*(n+1)/2))
 plot(n, s_n)
 lines(n, n*(n+1)/2)
 #Outcome: a plot with a line on them
+
+
+#For the previous question
+library(dslabs)
+data(murders)
+murder_rate <- murders$total / murders$population*100000
+ind <- which.min(murder_rate)
+if(murder_rate[ind] < 100000){print(murders$state[ind])} else{print("No state has a murder rate that low.")}
+#'Outcome:"Vermont"'
+
+#!1:length(murder_rate) or seq(length(murder_rate))
+for(i in seq(length(murder_rate))){
+  if(murder_rate[i] < 0.75){print(murders$state[i])}
+}
+# Outcome;
+# [1] "Hawaii"
+# [1] "Iowa"
+# [1] "New Hampshire"
+# [1] "North Dakota"
+# [1] "Vermont"
