@@ -24,7 +24,7 @@ if(murder_rate[ind] < 0.5){print(murders$state[ind])} else{print("No state has m
 
 if(murder_rate[ind] < 100000){print(murders$state[ind])} else{print("No state has murder rate that low")}
 #Outcome:"Vermont"
-#!!!Note: this simple if-else statement complete by the first element. If you want recall all elements should use with repeating algorithm.
+#!!!Note: this simple if-else statement complete by the first element. If you want recall all elements should use with repeating algorithm, 'for loops.'
 
 if(murder_rate[ind] < 0.1){print(murders$state[ind])} else{print("No state has murder rate that low")}
 #Outcome:"No state has murder rate that low"
