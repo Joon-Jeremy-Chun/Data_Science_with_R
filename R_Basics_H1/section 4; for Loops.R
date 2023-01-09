@@ -1,6 +1,6 @@
 #Objectives: To know about 'for loops.'
 #We can use them when the same task over and over 'while changing the variable.'
-
+library(dslabs)
 
 # creating a function that computes the sum of integers 1 through n
 compute_s_n <- function(n){
