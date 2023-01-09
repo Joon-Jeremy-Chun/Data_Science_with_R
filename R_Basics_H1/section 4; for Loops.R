@@ -18,7 +18,7 @@ for(i in 1:3){
 #3
 
 # a for-loop for our summation
-# the sum of integers 1through n. We want to have that process for n over 1 to 40
+# the sum of integers 1through n. We want to have that process for n over 1 to 50
 m <- 50
 #create an empty vector
 s_n <- vector(length = m) 
