@@ -2,13 +2,6 @@
 # Categorical data; Ordinal categorical data or Non-ordinal categorical data
 # Numerical data; Continuous variables or Discrete variables
 
-```{r}
-prop.table(table(heights$sex))
-
-```
-
-
-
 library(dslabs)
 data(heights)
 
