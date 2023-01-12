@@ -18,7 +18,7 @@ observed_quantiles <- quantile(x, p)
 theoretical_quantiles <- qnorm(p, mean = mean(x), sd = sd(x))
 # make QQ-plot
 plot(theoretical_quantiles, observed_quantiles)
-abline(0,1)
+abline(0,1) #(y-axis,slope)
 #Outcome: The table; its meaning -> each observed quantiles represent as each dots. And the line for theoretical 
 
 # make QQ-plot with scaled values
