@@ -24,4 +24,5 @@ murders %>% ggplot()
 
 p <- ggplot(data = murders)
 class(p)
+#Outcome: "gg" "ggplot"
 print(p)
