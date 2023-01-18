@@ -1,6 +1,8 @@
 #'paste' joins two strings and inserts a space in between.
 #'expand.grid' gives the combinations of 2 vectors or lists.
 
+library(gtools)
+
 suits <- c("Diamonds", "Clubs", "Hearts", "Spades")
 numbers <- c("Ace", "Deuce", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King")
 deck <- expand.grid(number = numbers, suit = suits)
@@ -80,3 +82,19 @@ mean(deck %in% kings)
 x <- 4/52
 x
 #Outcome:[1] 0.07692308
+
+
+#Code: Probability of drawing a second king given that one king is drawn
+hands <- permutations(52,2, v = deck)
+hands
+#Outcome: all the possibility (of permutation) cases 52*51 of the deck
+#checking
+length(hands)
+#Outcome: 52*51 cases with each two cards. so the elements of list = 52*51  *2 = 5304
+
+first_card <- hands[,1]
+length(first_card)
+#Outcome: record the first card of each permutations so 52*51  *1 = 2652
+second_card <- hands[,2]
+length(second_card)
+#Outcome: record the first card of each permutations so 52*51  *1 = 2652
