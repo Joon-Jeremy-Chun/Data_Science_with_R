@@ -120,5 +120,6 @@ length(second_card)
 sum(first_card %in% kings & second_card %in% kings) / sum(first_card %in% kings)
 #Outcome: [1] 0.05882353
 
+#(Checking) The probability of the second card is a king given that the first card is a king.
 a <- 3/51
 #Outcome: [1] 0.05882353

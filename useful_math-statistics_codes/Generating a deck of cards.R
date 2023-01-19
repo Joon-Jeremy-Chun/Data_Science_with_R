@@ -98,3 +98,10 @@ length(first_card)
 second_card <- hands[,2]
 length(second_card)
 #Outcome: record the first card of each permutations so 52*51  *1 = 2652
+
+sum(first_card %in% kings & second_card %in% kings) / sum(first_card %in% kings)
+#Outcome: [1] 0.05882353
+
+#The probability of the second card is a king given that the first card is a king.
+a <- 3/51
+#Outcome: [1] 0.05882353
