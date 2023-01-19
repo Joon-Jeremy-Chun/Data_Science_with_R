@@ -18,8 +18,8 @@ paste(number2, suit2)
 #Outcome:[1] "Three diamonds" "Two diamonds" 
 
 # joining vectors element-wise with paste
-paste(letters[1:5], as.character(1:5))
-#Outcome:[1] "a 1" "b 2" "c 3" "d 4" "e 5"
+paste(letters[1:5], as.character(1:3))
+#Outcome:[1] "a 1" "b 2" "c 3" "d 1" "e 2" <- pay attention
 
 # generating combinations of 2 vectors with expand.grid
 expand.grid(number2, suit2)
@@ -55,7 +55,6 @@ mean(deck %in% kings)
 4/52
 #Outcome:[1] 0.07692308
 
-
 #Permutations and Combinations
 permutations(5,2)    # ways to choose 2 numbers in order from 1:5
 #Outcome:
@@ -84,9 +83,9 @@ permutations(5,2)    # ways to choose 2 numbers in order from 1:5
 #generate all possible phone numbers
 all_phone_numbers <- permutations(10, 7, v = 0:9)
 n <- nrow(all_phone_numbers)
-index <- sample(n, 5)
+index <- sample(n, 5) 
 all_phone_numbers[index,]
-#Outcome:
+#Outcome: <-it will be differ every time, since they are random sampling
 #      [,1] [,2] [,3] [,4] [,5] [,6] [,7]
 # [1,]    6    7    0    4    5    2    8
 # [2,]    2    1    5    6    7    0    3
@@ -123,3 +122,49 @@ sum(first_card %in% kings & second_card %in% kings) / sum(first_card %in% kings)
 #(Checking) The probability of the second card is a king given that the first card is a king.
 a <- 3/51
 #Outcome: [1] 0.05882353
+
+
+#Code:probability of a natural 21 in blackjack
+aces <- paste("Ace", suits)
+facecard <- c("King", "Queen", "Jack", "Ten")
+facecard <- expand.grid(number = facecard, suit = suits)
+facecard <- paste(facecard$number, facecard$suit)
+
+hands <- combinations(52, 2, v=deck) # all possible hands
+
+# probability of a natural 21 given that the ace is listed first in `combinations`
+# *note* hands defined by combinations not permutation
+mean(hands[,1] %in% aces & hands[,2] %in% facecard)
+#Outcome:[1] 0.04826546
+
+# probability of a natural 21 checking for both ace first and ace second
+mean((hands[,1] %in% aces & hands[,2] %in% facecard)|(hands[,2] %in% aces & hands[,1] %in% facecard))
+#Outcome:[1] 0.04826546
+
+
+#Code: Monte Carlo simulation of natural 21 in blackjack
+
+# code for one hand of blackjack
+hand <- sample(deck, 2)
+hand
+
+# code for B=10,000 hands of blackjack
+B <- 10000
+results <- replicate(B, {
+  hand <- sample(deck, 2)
+  (hand[1] %in% aces & hand[2] %in% facecard) | (hand[2] %in% aces & hand[1] %in% facecard)
+})
+results
+mean(results)
+#Outcome: [1] 0.0497 <- the result will different each time but near to its probability-0.04826546
+
+
+#The calculation that above is Pr(A|B); first is aces and second is face given second of aces and first faces (order does not matter)
+#But the equation bellow only calculate in order matter (only half probability) 
+B <- 10000
+results <- replicate(B, {
+  hand <- sample(deck, 2)
+  (hand[1] %in% aces & hand[2] %in% facecard)
+})
+mean(results)
+#[1] 0.0231
