@@ -132,12 +132,14 @@ facecard <- paste(facecard$number, facecard$suit)
 
 hands <- combinations(52, 2, v=deck) # all possible hands
 
-# probability of a natural 21 given that the ace is listed first in `combinations`
-# *note* hands defined by combinations not permutation
+#probability of a natural 21 given that the ace is listed first in `combinations`
+#*note* hands defined by combinations not permutation
+#that reason why we can use the bellow cord
 mean(hands[,1] %in% aces & hands[,2] %in% facecard)
 #Outcome:[1] 0.04826546
 
-# probability of a natural 21 checking for both ace first and ace second
+#But not to make mistake, use the formal product ruls of probability following.
+#probability of a natural 21 checking for both ace first and ace second
 mean((hands[,1] %in% aces & hands[,2] %in% facecard)|(hands[,2] %in% aces & hands[,1] %in% facecard))
 #Outcome:[1] 0.04826546
 
