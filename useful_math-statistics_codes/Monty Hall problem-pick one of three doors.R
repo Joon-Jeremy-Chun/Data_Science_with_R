@@ -28,6 +28,14 @@ monty_hall("stick")
 B <- 100000
 stick <- replicate(B, monty_hall("stick"))
 mean(stick)
+#[1] 0.33289
 
 switch <- replicate(B, monty_hall("switch"))
 mean(switch)
+#[1] 0.66894
+
+#Mathematical reasoning
+#The probability always depends on the given information.
+#Most of the cases in statistic questions are based on the fixed given information
+#But, for incidents, stock market, the information has been changing all the time
+#In the case of the above, once you choose to switch the door, actually it is the same scenario that you choose "TWO doors" at first.
