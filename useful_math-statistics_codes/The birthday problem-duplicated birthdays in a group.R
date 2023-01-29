@@ -1,5 +1,5 @@
 # checking for duplicated birthdays in one 50 person group
-
+library(tidyverse)
 
 n <- 50
 bdays <- sample(1:365, n, replace = TRUE)    # generate n random birthdays
@@ -56,7 +56,17 @@ birthday_prob(22,1000)
 # [1] 0.483
 
 #Using the function 'aspply' to safe the results(the probability) 
+birthday_prob_2 <- function(x) {
+  n <- x
+  b <- 10000
+  prob <- replicate(b, {
+    bdays <- sample(1:365, n, replace = TRUE)
+    any(duplicated(bdays))
+  })
+  y <- mean(prob)
+  print(y)
+}
 
-
-n <-seq(1,60)
-prob <- aspply(n, compute_prob)
+n <- seq(1,60)
+prob <- sapply(n, birthday_prob_2)
+qplot(n, prob)
