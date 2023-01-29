@@ -25,3 +25,38 @@ results <- replicate(B, {    # returns vector of B logical values
 })
 mean(results)
 #[1] 0.5773
+
+#Try to find a number of members for a group which gives half probability in duplicated birthday. 
+#What about 22 people in the group
+n <- 22
+B <- 10000
+results <- replicate(B, {    # returns vector of B logical values
+  bdays <- sample(1:365, n, replace = TRUE)
+  any(duplicated(bdays))
+})
+mean(results)
+#[1] 0.4707
+
+
+#In order to find probability of each n (1:60)
+
+#Defining birthday function
+
+birthday_prob <- function(x,B) {
+  n <- x
+  b <- B
+  prob <- replicate(b, {
+    bdays <- sample(1:365, n, replace = TRUE)
+    any(duplicated(bdays))
+  })
+  y <- mean(prob)
+  print(y)
+}
+birthday_prob(22,1000)
+# [1] 0.483
+
+#Using the function 'aspply' to safe the results(the probability) 
+
+
+n <-seq(1,60)
+prob <- aspply(n, compute_prob)
