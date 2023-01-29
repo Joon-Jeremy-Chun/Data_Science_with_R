@@ -70,3 +70,15 @@ birthday_prob_2 <- function(x) {
 n <- seq(1,60)
 prob <- sapply(n, birthday_prob_2)
 qplot(n, prob)
+
+help(prod)
+
+#Mathematical reasoning
+#The probability for duplicated birthday is same with the probability that 1 - all members are unique.
+exact_prob <- function(n){
+  prob_unique <- seq(365,365-n+1)/365
+  1- prod(prob_unique)
+}
+exact_prob <- sapply(n, exact_prob)
+qplot(n, prob) + geom_line(aes(n, exact_prob), col="red")
+help(sapply)
