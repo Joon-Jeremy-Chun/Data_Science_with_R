@@ -8,10 +8,14 @@ library(tidyverse)
 library(dslabs)
 data(heights)
 x <- heights %>% filter(sex=="Male") %>% pull(height)
+x
+# num [1:812]
 
 #Given a vector x, we can define a function for computing the CDF of x using:
   
-F <- function(a) mean(x <= a)
+F <- function(a) mean(x <= a) 
+#mean function of x; how many x's over all by given '<= a'
+
 
 # probability of male taller than 70 inches
 
