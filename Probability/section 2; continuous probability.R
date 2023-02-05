@@ -17,7 +17,16 @@ F <- function(a) mean(x <= a)
 #mean function of x; how many x's over all by given '<= a'
 
 
-# probability of male taller than 70 inches
-
+#The probability of male taller than 70 inches
 1 - F(70)    
-# [1] 0.3768473
+#[1] 0.3768473
+
+#(Checking)The probability of male taller than 1 inches and smaller then 70
+F(70) - F(0) 
+#[1] 0.6231527
+0.3768473+0.6231527
+#[1] 1
+
+#The probability of male taller than 62 inches and smaller then 72 inches
+F(72) - F(62)
+#[1] 0.8103448
