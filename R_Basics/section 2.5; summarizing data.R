@@ -135,7 +135,7 @@ murders %>% top_n(10, population)
 
 
 #The dot operator
-#The pipe operator dose not keep naming new objects. So, we can use dot operator
+#The pipe operator does not keep naming new objects. So, we can use dot operator
 Y <- murders %>%
   filter(region == 'West') %>%
   mutate(rate = total / population * 10^5)

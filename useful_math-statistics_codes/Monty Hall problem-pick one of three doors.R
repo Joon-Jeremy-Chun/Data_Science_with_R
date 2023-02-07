@@ -36,6 +36,6 @@ mean(switch)
 
 #Mathematical reasoning
 #The probability always depends on the given information.
-#Most of the cases in statistic questions are based on the fixed given information
+#Most of the cases in statistic questions are based on the given fixed information
 #But, for incidents, stock market, the information has been changing all the time
-#In the case of the above, once you choose to switch the door, actually it is the same scenario that you choose "TWO doors" at first.
+#In the case of the above, Monty Heall problem, once you choose to switch the door, actually it is the same scenario that you choose "TWO doors" at first.
