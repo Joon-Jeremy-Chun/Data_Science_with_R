@@ -49,3 +49,6 @@ heights %>%
 #   <fct>  <dbl>  <dbl> <dbl>
 # 1 Female    51   65.0  79  
 # 2 Male      50   69    82.7
+
+#Note that here we need to use the dot operator. The tibble created by group_by is piped to do.
+#Within the call to do, 'the name of this tibble is .' and we wnat to send it to my_summary.
