@@ -1,6 +1,6 @@
 #objectives;
 #how to use pipe '%>%' operator. it can help to reduce unnecessary variables
-
+library(dplyr)
 
 16 %>% sqrt()
 #Error in 16 %>% sqrt() : could not find function "%>%"
