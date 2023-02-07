@@ -1,6 +1,7 @@
 #Objectives;
 #How to use the functions 'summarize()', 'group_by()', and 'arrange()'-sorting.
-#How to use 'quantile()' function
+#How to use the 'quantile()' function
+#How to use the 'dot' operator
 
 library(dplyr)
 library(dslabs)
@@ -11,7 +12,7 @@ data(heights)
 
 #looks thought the first 5 data
 heights %>% head(5)
-# sex height
+#    sex height
 # 1 Male     75
 # 2 Male     70
 # 3 Male     68
@@ -20,12 +21,12 @@ heights %>% head(5)
 
 #finding mean and sd 
 heights %>% summarize(average = mean(height), standard_deviation = sd(height))
-# average standard_deviation
+#    average standard_deviation
 # 1 68.32301           4.078617
 
 #finding mean and sd of Female
 heights %>% filter(sex == "Female") %>% summarize(average = mean(height), standard_deviation = sd(height))
-# average standard_deviation
+#    average standard_deviation
 # 1 64.93942           3.760656
 
 
@@ -33,13 +34,13 @@ heights %>% filter(sex == "Female") %>% summarize(average = mean(height), standa
 heights %>%
   filter(sex == "Female") %>%
   summarize(minimum = min(height), median = median(height), maximum = max(height))
-# minimum   median maximum
+#   minimum   median maximum
 # 1      51 64.98031      79
 
 heights %>%
   filter(sex == "Female") %>%
   summarize(range = quantile(height, c(0, 0.5, 1)))
-# range
+#      range
 # 1 51.00000
 # 2 64.98031
 # 3 79.00000
@@ -49,8 +50,8 @@ heights %>%
 heights %>%
   group_by(sex) %>%
   summarize(average = mean(height), standard_deviation = sd(height))
-# sex    average standard_deviation
-# <fct>    <dbl>              <dbl>
+#    sex    average standard_deviation
+#    <fct>    <dbl>              <dbl>
 # 1 Female    64.9               3.76
 # 2 Male      69.3               3.61
 
@@ -73,7 +74,7 @@ data(murders)
 murders %>%
   arrange(population) %>%
   head(10)
-# state abb        region population total
+#                   state abb        region population total
 # 1               Wyoming  WY          West     563626     5
 # 2  District of Columbia  DC         South     601723    99
 # 3               Vermont  VT     Northeast     625741     2
@@ -89,7 +90,7 @@ murders %>%
 murders %>%
   arrange(desc(population)) %>%
   head(10)
-# state abb        region population total
+#             state abb        region population total
 # 1      California  CA          West   37253956  1257
 # 2           Texas  TX         South   25145561   805
 # 3         Florida  FL         South   19687653   669
@@ -106,7 +107,7 @@ murders %>%
 murders %>%
   arrange(region, population) %>%
   head(10)
-# state abb    region population total
+#                   state abb    region population total
 # 1               Vermont  VT Northeast     625741     2
 # 2          Rhode Island  RI Northeast    1052567    16
 # 3         New Hampshire  NH Northeast    1316470     5
@@ -120,7 +121,7 @@ murders %>%
 
 #The top n
 murders %>% top_n(10, population)
-# state abb        region population total
+#             state abb        region population total
 # 1      California  CA          West   37253956  1257
 # 2         Florida  FL         South   19687653   669
 # 3         Georgia  GA         South    9920000   376
@@ -131,3 +132,34 @@ murders %>% top_n(10, population)
 # 8            Ohio  OH North Central   11536504   310
 # 9    Pennsylvania  PA     Northeast   12702379   457
 # 10          Texas  TX         South   25145561   805
+
+
+#The dot operator
+#The pipe operator dose not keep naming new objects. So, we can use dot operator
+murders %>%
+  filter(region == 'West') %>%
+  mutate(rate = total / population * 10^5)
+#          state abb region population total      rate
+# 1      Alaska  AK   West     710231    19 2.6751860
+# 2     Arizona  AZ   West    6392017   232 3.6295273
+# 3  California  CA   West   37253956  1257 3.3741383
+# 4    Colorado  CO   West    5029196    65 1.2924531
+# 5      Hawaii  HI   West    1360301     7 0.5145920
+# 6       Idaho  ID   West    1567582    12 0.7655102
+# 7     Montana  MT   West     989415    12 1.2128379
+# 8      Nevada  NV   West    2700551    84 3.1104763
+# 9  New Mexico  NM   West    2059179    67 3.2537239
+# 10     Oregon  OR   West    3831074    36 0.9396843
+# 11       Utah  UT   West    2763885    22 0.7959810
+# 12 Washington  WA   West    6724540    93 1.3829942
+# 13    Wyoming  WY   West     563626     5 0.8871131
+
+
+
+X  <- murders %>%
+  filter(region == 'West') %>%
+  mutate(rate = total / population * 10^5) %>%
+  .$rate
+print(X)
+# [1] 2.6751860 3.6295273 3.3741383 1.2924531 0.5145920 0.7655102 1.2128379 3.1104763 3.2537239 0.9396843
+# [11] 0.7959810 1.3829942 0.8871131
