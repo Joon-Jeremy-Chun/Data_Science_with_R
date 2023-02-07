@@ -136,10 +136,11 @@ murders %>% top_n(10, population)
 
 #The dot operator
 #The pipe operator dose not keep naming new objects. So, we can use dot operator
-murders %>%
+Y <- murders %>%
   filter(region == 'West') %>%
   mutate(rate = total / population * 10^5)
-#          state abb region population total      rate
+print(Y)
+#         state abb region population total      rate
 # 1      Alaska  AK   West     710231    19 2.6751860
 # 2     Arizona  AZ   West    6392017   232 3.6295273
 # 3  California  CA   West   37253956  1257 3.3741383
@@ -153,7 +154,6 @@ murders %>%
 # 11       Utah  UT   West    2763885    22 0.7959810
 # 12 Washington  WA   West    6724540    93 1.3829942
 # 13    Wyoming  WY   West     563626     5 0.8871131
-
 
 
 X  <- murders %>%
