@@ -1,14 +1,26 @@
-#Find the chance that the casino's total risks (Ex <= $0). with Monte Carlo simulations
-
+#--roulette practice
+# five pockets  roulette;(00, 0, 1, 2, 3) of 38. the bet pays 6 to 1; win +6 loss -1
+#expectation for one bet
+38-5-2
+m <- 5/38*6 + (38-5)/38*(-1)
+#[1] 1.210526
 
 #define roulette
-color <- rep(c("Black", "Red", "Green"), c(18, 18, 2))
+#black for win
+color <- rep(c("Black", "Red", "Green"), c(5, 32, 2))
 
-#Let's say 1000 people play on the game. The casino loss $-1 for Red and $+1 for otherwise.
-n <- 1000
-X <- sample(ifelse(color == "Red", -1, 1), n, replace = TRUE)
+#standard err for one bet
+abs(6 --1) * sqrt(5/38 * (38-5)/38)
+#[1] 2.366227
+#(need think this way) why not mach with?
+sqrt((6 - m)^2*5/38 + ((-1) - m)^2*32/38)
+#[1] 2.361505
+
+# 500 bet
+n <- 500
+X <- sample(ifelse(color == "Black", 6, -1), n, replace = TRUE)
 X[0:10]
-#[1] -1  1  1  1  1 -1  1 -1 -1  1
+#[1] -1  6 -1 -1 -1 -1 -1 -1 -1 -1
 
 #We call above a sampling model
 
@@ -44,5 +56,3 @@ mean(S <= 0)
 365*0.049
 #[1] 17.885
 # Around only 18 days the casino going to loss the game.
-
-#In other words, in average, players expected to loss money in 347 days.

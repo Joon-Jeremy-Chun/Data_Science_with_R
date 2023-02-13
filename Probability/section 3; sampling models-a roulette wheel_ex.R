@@ -1,6 +1,6 @@
 #Objectives;
 #Will see the stranded distribution in random sampling-example of roulette
-#Find the chance that the casino's total risks (Ex <= $0). with Monty Carlo simulations
+#Find the chance that the casino's total risks (Ex <= $0). with Monte Carlo simulations
 
 
 #define roulette
