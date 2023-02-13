@@ -3,24 +3,47 @@
 #expectation for one bet
 38-5-2
 m <- 5/38*6 + (38-5)/38*(-1)
-#[1] 1.210526
-
-#define roulette
-#black for win
-color <- rep(c("Black", "Red", "Green"), c(5, 32, 2))
+m
+#[1] -0.07894737
 
 #standard err for one bet
 abs(6 --1) * sqrt(5/38 * (38-5)/38)
 #[1] 2.366227
+
 #(need think this way) why not mach with?
 sqrt((6 - m)^2*5/38 + ((-1) - m)^2*32/38)
 #[1] 2.361505
 
+#standard err of average payout over 500 bets
+abs(6 --1) * sqrt((5/38 * (38-5)/38) / 500)
+#[1] 0.1058209
+
+#standard error of the sum of 500 bets
+500 * abs(6 --1) * sqrt((5/38 * (38-5)/38) / 500)
+sd <- sqrt(500) * abs(6 --1) * sqrt(5/38 * (38-5)/38)
+#[1] 52.91045
+
+#sum m
+m_500 <- m*500
+
+#Pr(X <= 0)
+
+pnorm(0, m_500, sd)
+#[1] 0.7721805
+
+#-----------------
+
+#define roulette
+#black for win
+color <- rep(c("Black", "Red", "Green"), c(5, 31, 2))
+
 # 500 bet
 n <- 500
 X <- sample(ifelse(color == "Black", 6, -1), n, replace = TRUE)
-X[0:10]
-#[1] -1  6 -1 -1 -1 -1 -1 -1 -1 -1
+sum(X)
+#[1] -0.048
+m*500
+#[1] -39.47368
 
 #We call above a sampling model
 
