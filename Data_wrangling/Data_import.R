@@ -2,7 +2,7 @@
 getwd()
 
 # change your working directory
-setwd()
+# setwd("C:/XXX/XXX")
 
 # set path to the location for raw data files in the dslabs package and list files
 

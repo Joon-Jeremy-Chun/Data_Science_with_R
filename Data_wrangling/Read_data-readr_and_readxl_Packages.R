@@ -25,7 +25,15 @@ path <- system.file("extdata", package = "dslabs")
 files <- list.files(path)
 files
 
-filename <- "HRlist2.txt"
+filename2 <- "HRlist2.txt"
 
-dat=read.table(file.path(path, filename))
-dat
+dat2 = read.table(file.path(path, filename2))
+dat2
+
+
+#R-base import functions (read.csv(), read.table(), read.delim()) generate data frames rather than tibbles.
+dat3 <- read.csv(filename)
+class(dat3$abb)
+#[1] "character"
+class(dat3$region)
+#[1] "character"
