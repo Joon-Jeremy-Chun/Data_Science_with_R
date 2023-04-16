@@ -1,4 +1,4 @@
-#Objectives,note from text book
+#Objectives,note from the text book
 #The pivot_wider() function converts tidy data into wide data, which can be a useful intermediate step in data tidying.
 #The data frame to be reshaped is the first argument in pivot_wider().
 #The argument names_from tells pivot_wider() which variable will be used for the column names and the argument values_from tells pivot_wider() which variable to use to fill in the values.

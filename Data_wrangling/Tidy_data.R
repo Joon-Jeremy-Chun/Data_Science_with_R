@@ -1,4 +1,4 @@
-#note - from textbook
+#note - from the textbook
 #in tidy data, each row represent an observation and each column represents a different variable.
 #in wide data, each row includes several observations and one of the variables is stored in the header.
 

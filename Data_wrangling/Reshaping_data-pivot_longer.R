@@ -1,4 +1,4 @@
-#Objectives nots from textbook
+#Objectives, notes from the textbook
 #After importing data, a common next step is to reshape the data into a form useful for the rest of the analysis by tidying it. The tidyr package includes several useful functions for tidying data.
 #The pivot_longer() function converts wide data into tidy data.
 #The first argument of pivot_longer() is the data frame to be reshaped. The second argument specifies the columns containing the values to be moved into a single column.
