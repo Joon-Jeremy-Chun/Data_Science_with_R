@@ -36,6 +36,12 @@ top_salary <- Salaries %>% filter(yearID == 2016) %>%
 #
 AwardsPlayers %>% as_tibble()
 
-top_awards <- AwardsPlayers %>% filter(yearID == 2016) %>%
-  right_join(top_names) %>%
-  select(playerID, nameFirst, nameLast, HR, awardID)
+top_awards1 <- AwardsPlayers %>% filter(yearID == 2016) %>%
+  right_join(top) %>%
+  select(playerID, HR, awardID)
+#
+top_awards2 <- AwardsPlayers %>% filter(yearID == 2016) %>%
+  select(playerID, awardID) %>% pivot_wider(names_from = playerID, values_from = awardID)
+
+length(setdiff(top$playerID, top_awards$playerID))
+#[1] 7
