@@ -42,7 +42,7 @@ qnorm(alpha/2, 63.7,2.7)
 
 #keep only entries that either result in NAs or are outside the plausible range of heights
 not_inches <- function(x, smallest = 50, tallest =84){
-  inches <- suppressWarnings(as.numeric(X))
+  inches <- suppressWarnings(as.numeric(x))
   ind <- is.na(inches) | inches < smallest | inches > tallest
   ind
 }
