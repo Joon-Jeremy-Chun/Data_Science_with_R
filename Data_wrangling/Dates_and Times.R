@@ -81,3 +81,12 @@ now() %>% minute()    # current minute
 #[1] 31
 now() %>% second()    # current second
 #[1] 19.23956
+
+#parse time
+z <- ("12:34:56")
+hms(z)
+#[1] "12H 34M 56S"
+
+z2 <- "Nov/2/2012 12:34:56"
+mdy_hms(z2)
+#[1] "2012-02-20 12:34:56 UTC"
