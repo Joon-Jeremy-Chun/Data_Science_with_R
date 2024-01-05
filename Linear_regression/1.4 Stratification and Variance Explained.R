@@ -49,3 +49,35 @@ galton_heights %>%
   ggplot(aes(father, son_conditional_avg)) +
   geom_point()
 
+# add regression line to standardized data
+r <- galton_heights %>% summarize( r =  cor(father, son)) %>% pull(r)
+
+galton_heights %>%
+  mutate(father = scale(father), son = scale(son)) %>%
+  mutate(father = round(father)) %>%
+  group_by(father) %>%
+  summarize(son = mean(son)) %>%
+  ggplot(aes(father, son)) +
+  geom_point() +
+  geom_abline(intercept = 0, slope = r)
+
+#See the difference only in the units
+#add regression line to original data (before standardized)
+mu_x <- mean(galton_heights$father)
+mu_y <- mean(galton_heights$son)
+s_x <- sd(galton_heights$father)
+s_y <- sd(galton_heights$son)
+r2 <- cor(galton_heights$father, galton_heights$son)
+m <- r2 * s_y/s_x
+b <- mu_y - m*mu_x
+
+galton_heights %>%
+  ggplot(aes(father, son)) +
+  geom_point(alpha = 0.5) +
+  geom_abline(intercept = b, slope = m)
+
+#plot in standard units and see that intercept is 0 and slope is rho (after standardized)
+galton_heights %>%
+  ggplot(aes(scale(father), scale(son))) +
+  geom_point(alpha = 0.5) +
+  geom_abline(intercept = 0, slope = r2)
