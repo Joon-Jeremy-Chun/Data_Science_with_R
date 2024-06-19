@@ -62,5 +62,3 @@ dat %>%
   ggplot(aes(HR, y = estimate, ymin = conf.low, ymax = conf.high)) +
   geom_errorbar() +
   geom_point()
-
-
