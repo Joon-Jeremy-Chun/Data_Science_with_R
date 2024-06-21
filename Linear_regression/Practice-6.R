@@ -44,3 +44,32 @@ regLine_hr <- Teams_small %>%
   do(tidy(lm(avg_attendance ~ homeruns_per_game, data = .), conf.int = TRUE)) %>%
   ungroup() %>%
   select(W_round10, estimate, std.error, conf.low, conf.high, p.value)
+
+fit <- Teams_small %>% 
+  lm(avg_attendance ~ W + runs_per_game + homeruns_per_game + yearID, data = .)
+
+fit_summary <- tidy(fit, conf.int = TRUE)
+
+pred <- tibble(
+  W = c(80,80),
+  runs_per_game = c(5,5),
+  yearID = c(2002,1960),
+  homeruns_per_game = c(1.2,1.2)
+)
+
+predictions <- predict(fit, newdata = pred)
+
+Teams_2002 <- Teams %>% 
+  filter(yearID == 2002) %>% 
+  mutate(
+    avg_attendance = attendance / G,
+    runs_per_game = R / G,
+    homeruns_per_game = HR / G
+  )
+
+predictions_2002 <- predict(fit, newdata = Teams_2002)
+
+Teams_2002 <- Teams_2002 %>%
+  mutate(predicted_attendance = predictions_2002)
+
+correlation <- cor(Teams_2002$avg_attendance, Teams_2002$predicted_attendance)

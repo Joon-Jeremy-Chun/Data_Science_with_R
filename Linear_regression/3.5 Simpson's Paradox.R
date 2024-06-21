@@ -1,0 +1,1 @@
+#Simpson’s Paradox happens when we see the sign of the correlation flip when comparing the entire dataset with specific strata. 
