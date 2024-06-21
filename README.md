@@ -1,4 +1,4 @@
-# My R Summary
+# Data Science with R
 
 Welcome to "Data Science with R," a curated collection of R notebooks and scripts that span a wide array of topics from basic data manipulation to advanced statistical analyses. This repository is intended as a valuable resource for learners and enthusiasts of R, aiming to provide a deeper understanding of data science and statistical analysis through practical examples and comprehensive guides.
 
