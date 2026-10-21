@@ -1,3 +1,7 @@
+# Explicit dependencies for an independent R session (2026 maintenance).
+library(tidyverse)
+library(Lahman)
+
 #Stratification and Multivariate Regression
 #A first approach to check confounding is to keep HRs fixed at a certain value and then examine the relationship between BB and runs.
 #The slopes of BB after stratifying on HR are reduced, but they are not 0, which indicates that BB are helpful for producing runs, just not as much as previously thought.

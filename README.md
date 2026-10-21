@@ -1,34 +1,84 @@
+<div align="center">
+
+![Data science with R study map](assets/readme/cover.svg)
+
 # Data Science with R
 
-Welcome to "Data Science with R," a curated collection of R notebooks and scripts that span a wide array of topics from basic data manipulation to advanced statistical analyses. This repository is intended as a valuable resource for learners and enthusiasts of R, aiming to provide a deeper understanding of data science and statistical analysis through practical examples and comprehensive guides.
+**Learn the computation. Check the assumptions. Explain what the result can support.**
 
-## Topics Include
+[Study map](#study-map) · [Case studies](#case-studies) · [Source catalog](docs/SOURCE_CATALOG.md) · [Reproduce](docs/REPRODUCIBILITY.md)
 
-This repository covers a range of topics essential for mastering R and its application in data science:
+</div>
 
-- **Data Wrangling**: Learn how to clean, reshape, and prepare your data for analysis.
-- **Linear Regression**: Dive into the basics and complexities of linear regression models.
-- **Probability**: Explore the fundamentals of probability theory and its applications in statistics.
-- **GitHub Productivity Tools**: Enhance your GitHub workflow with R-based tools and integrations.
-- **R Fundamentals**: Build a strong foundation with core R programming concepts.
-- **Data Visualization**: Create compelling and informative visualizations with R's powerful libraries.
-- **Applied Math and Statistics**: Apply mathematical and statistical methods to solve real-world problems.
+A detailed archive of R data-science coursework and investigations: **98 lesson scripts across eight collections**, plus one explicit dependency helper and an original R Markdown example. Topics connect programming, wrangling, graphics, simulation, regression and supervised learning.
 
-Each folder within this repository is dedicated to a specific topic and contains detailed examples and guides to facilitate your learning journey.
+> **Verified maintenance — 2026-10-20:** six former placeholders were completed, a separate offline Iris companion was added, and 40 R paths received reviewed changes. All 85 selected offline lesson checks completed; 12 focused mathematical/behavioral cases passed. Fourteen effectful or large examples remain outside the routine smoke run.
 
-## Getting Started
+## Study map
 
-To get started with this repository, you will need to have R and RStudio installed on your computer. Follow these steps to set up your environment:
+| Order | Collection | What to investigate |
+|---|---|---|
+| 1 | [R programming foundations](R_Basics/README.md) | Move from types and vector indexing to explicit transformations, grouped summaries and reusable functions. |
+| 2 | [Visualization and distribution checks](Visualization/README.md) | Understand what axes, scales and quantiles mean before adding plot decoration. |
+| 3 | [Probability and simulation](Probability/README.md) | Connect sample spaces, exact probabilities, simulation uncertainty and dependence assumptions. |
+| 4 | [Data import, reshaping and text](Data_wrangling/README.md) | Trace how raw files and messy strings become typed, joined and tidy tables. |
+| 5 | [Regression, uncertainty and interpretation](Linear_regression/README.md) | Progress from association and least squares to uncertainty, selection and causal interpretation. |
+| 6 | [Supervised-learning entry point](Machine_learning/README.md) | Separate conceptual notes from a small reproducible classifier. |
+| 7 | [Reproducible work and Git review](Productivity_tools-github/README.md) | Record the software context and inspect changes before publishing. |
+| 8 | [Small mathematics and probability investigations](useful_math-statistics_codes/README.md) | Use exact answers to check simulation and computation. |
 
-1. Download and install R from [CRAN](https://cran.r-project.org/).
-2. Download and install RStudio from [RStudio's website](https://www.rstudio.com/products/rstudio/download/).
-3. Clone this repository to your local machine using `git clone` or download it as a ZIP file.
-4. Open the R notebooks or scripts in RStudio to start exploring and learning.
+## Case studies
 
-## How to Use
+| Investigation | Key idea |
+|---|---|
+| [Common causes and adjusted regression](docs/cases/confounding/README.md) | Show how a common cause Z creates an X–Y association even though X has no direct term in the generating equation. |
+| [A strict Simpson reversal](docs/cases/simpson/README.md) | Explain how pooling different mixtures can reverse a comparison that holds within every stratum. |
+| [Independent versus dependent loan losses](docs/cases/dependent-defaults/README.md) | Hold the marginal default rate fixed and inspect how shared dependence changes aggregate loss uncertainty. |
+| [Natural blackjack: simulation and an exact answer](docs/cases/blackjack/README.md) | Use a finite sample space to validate a Monte Carlo estimate. |
+| [An offline token-counting reference](docs/cases/text-mining/README.md) | Turn a comment-only text-mining note into a small inspectable operation without downloading a corpus. |
+| [An offline Iris classifier in R](docs/cases/iris-classification/README.md) | Make the feature/outcome concepts concrete while keeping test data separate from preprocessing. |
+| [Regression scores and a constrained baseball roster](docs/cases/baseball-roster/README.md) | Follow a team-level regression into an illustrative player-scoring and budget-constrained selection problem. |
+| [Parsing inconsistent height entries](docs/cases/reported-heights/README.md) | Separate malformed strings, plausible units and numeric ranges before interpreting measurements. |
+| [Birthday collisions and boundary-aware formulas](docs/cases/birthday/README.md) | Compare simulation with the complement of all birthdays being unique. |
 
-Navigate through the repository's folders to find topics of interest. Each folder contains notebooks or scripts that you can run in RStudio. Comments and documentation within the files will guide you through the examples and teach you various techniques and concepts in R.
+### A comparison can reverse when groups are pooled
 
-## Acknowledgments
+The new Simpson reference uses invented counts: A has the higher success rate in each stratum, while B has the higher pooled rate because the groups have different mixture weights.
 
-This repository was inspired by and includes examples from the Professional Certificate in Data Science offered by Harvard University. A special thanks to the educators and contributors of the course for providing such comprehensive material that has aided countless learners in their data science journey.
+![Synthetic Simpson reversal](assets/results/simpson-reference.png)
+
+*New 2026 reference output. See the [counts, assumptions and verification](docs/cases/simpson/README.md).*
+
+## What was completed or repaired
+
+- **Former placeholders:** confounding, Simpson’s paradox, dependent defaults, natural blackjack, offline text counting and reproducibility/Git practice.
+- **Independent execution:** missing imports/setup, resolved package data paths, explicit regex/reshaping preparation and caught pedagogical error demonstrations.
+- **Numerical/data correctness:** roster variable alignment, roulette variance/wheel setup, month labels, sum/birthday boundaries and million-dollar plotting units.
+- **Explicit preparation:** packages.R now inspects by default and installs only with --install; the PDF exercise no longer opens a viewer automatically.
+
+Full details are in the [repair log](docs/REPAIRS.md). Original examples, datasets, project files and historic numeric comments are preserved. The introduction notes being edited in the original worktree were left unchanged; the new Iris companion is separate.
+
+## Start with a verified example
+
+```bash
+Rscript --vanilla "Linear_regression/3.5 Simpson's Paradox.R"
+Rscript --vanilla "Machine_learning/2.1 Offline classification reference.R"
+Rscript --vanilla tests/test_repairs.R
+Rscript --vanilla tools/validate_r_sources.R
+python tools/validate_archive.py
+```
+
+Use the [reproduction guide](docs/REPRODUCIBILITY.md) for Rscript discovery on Windows, dependency inspection, the offline smoke runner and external-data prerequisites. A successful small check does not reproduce every historical result or validate a causal claim.
+
+## Documentation and evidence
+
+- [Full source catalog](docs/SOURCE_CATALOG.md): all 98 lessons and the package helper.
+- [Repairs](docs/REPAIRS.md), [validation](docs/VALIDATION.md), [reproduction](docs/REPRODUCIBILITY.md).
+- [Figure sources](assets/readme/SOURCES.md): authored cover and freshly generated synthetic reference plots.
+- [Korean handoff](docs/handoffs/HANDOFF_2026-10-20.md) and [shared agent instructions](AGENTS.md).
+
+## Learning sources and attribution
+
+The prior README credits Harvard University’s Professional Certificate in Data Science as inspiration; source notes cite Rafael A. Irizarry. This documents learning material and does not independently verify a credential, original authorship of course examples or project dates.
+
+The [original textbook site](https://rafalab.dfci.harvard.edu/dsbook/) identifies its first edition and links newer editions. Package datasets such as [dslabs](https://cran.r-project.org/package=dslabs), HistData and Lahman retain their own provenance and rights. No new blanket license or current-world policy/financial claim is assigned.

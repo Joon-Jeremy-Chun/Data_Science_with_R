@@ -1,3 +1,12 @@
+# Standalone setup, previously inherited from earlier lessons.
+library(tidyverse)
+library(HistData)
+data("GaltonFamilies")
+set.seed(1983)
+galton_heights <- GaltonFamilies %>%
+  filter(gender == "male") %>% group_by(family) %>% sample_n(1) %>%
+  ungroup() %>% select(father, childHeight) %>% rename(son = childHeight)
+
 #Predicted Variables are Random Variables
 #The predicted value is often denoted as Y-hat, which is a random variable. Mathematical theory tells us what the standard error of the predicted value is.
 #The predict() function in R can give us predictions directly.
@@ -17,4 +26,3 @@ galton_heights %>%
   mutate(Y_hat = predict(lm(son ~ father, data=.))) %>%
   ggplot(aes(father, Y_hat))+
   geom_line()
-

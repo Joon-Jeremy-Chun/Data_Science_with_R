@@ -1,3 +1,13 @@
+library(tidyverse)
+library(stringr)
+library(dslabs)
+data("reported_heights")
+not_inches <- function(x) {
+  inches <- suppressWarnings(as.numeric(x))
+  is.na(inches) | inches < 50 | inches > 84
+}
+problems <- reported_heights$height[not_inches(reported_heights$height)]
+
 animals <- c("cat", "puppy", "MoosE", "MONKEY")
 pattern <- "[a-z]"
 str_detect(animals, pattern)

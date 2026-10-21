@@ -1,3 +1,6 @@
+# Explicit dependencies for an independent R session (2026 maintenance).
+library(tidyverse)
+
 #Regression can bring about errors in reasoning, especially when interpreting individual observations.
 #The example showed in the video demonstrates that the "sophomore slump" observed in the data is caused by regressing to the mean.
 
@@ -85,4 +88,3 @@ summarize(two_years, cor(`2013`,`2014`))
 #>   `cor(\`2013\`, \`2014\`)`
 #>                       <dbl>
 #> 1                     0.460
-

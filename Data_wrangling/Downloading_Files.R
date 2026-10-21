@@ -1,3 +1,6 @@
+# Explicit dependencies for an independent R session (2026 maintenance).
+library(readr)
+
 #Objectives - textbook
 #The read_csv() function and other import functions can read a URL directly.
 #If you want to have a local copy of the file, you can use download.file().

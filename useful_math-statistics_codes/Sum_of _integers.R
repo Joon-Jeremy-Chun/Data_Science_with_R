@@ -2,7 +2,8 @@
 library(dslabs)
 #creating a function that computes the sum of integers 1 through n
 sum_n <- function(n){
-  x <- 1:n
+  stopifnot(length(n)==1L, is.finite(n), n >= 0, n == floor(n))
+  x <- seq_len(n)
   sum(x)
 }
 
@@ -43,7 +44,8 @@ lines(n, n*(n+1)/2)
 
 #creating a function that computes the sum of integers 1 through n^2
 sum_n_p2 <- function(n){
-  x <- 1:n
+  stopifnot(length(n)==1L, is.finite(n), n >= 0, n == floor(n))
+  x <- seq_len(n)
   n_p2 <- x^2
   sum(n_p2)
 }
@@ -64,6 +66,5 @@ for(i in 1:e){
 
 plot(1:e, s_n_p2)
 
-lines(n, (n*(n+1)*(2*n+1))/6)
+lines(seq_len(e), (seq_len(e)*(seq_len(e)+1)*(2*seq_len(e)+1))/6)
 #Outcome: a plot with a line on them
-

@@ -1,7 +1,13 @@
+# Explicit dependencies for an independent R session (2026 maintenance).
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+
 library(stringr)
 
 fn <- system.file("extdata", "RD-Mortality-Report_2015-18-180531.pdf", package="dslabs")
-system("cmd.exe", input = paste("start", fn))
+# Optional manual preview: utils::browseURL(fn)
+# No visible application is launched when the script is sourced.
 
 #install.packages("pdftools")
 library(pdftools)

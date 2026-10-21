@@ -1,3 +1,7 @@
+# Explicit dependencies for an independent R session (2026 maintenance).
+library(tidyverse)
+library(broom)
+
 #Another way association can be confused with causation is when the cause and effect are reversed.
 #As discussed in the video, in the Galton data, when father and son were reversed in the regression, the model was technically correct.
 #The estimates and p-values were obtained correctly as well. What was incorrect was the interpretation of the model.

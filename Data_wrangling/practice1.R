@@ -1,3 +1,6 @@
+# Explicit dependencies for an independent R session (2026 maintenance).
+library(readr)
+
 library(dslabs)
 
 getwd()
@@ -40,7 +43,7 @@ file.copy(file.path(path, "HRlist2.txt"), file.path(getwd(), "data"))
 dat2 <- read_delim(file.path(path, "HRlist2.txt"))
 dat3 <- read.csv(file.path(path, "HRlist2.txt"))
 dat4 <- read_csv(file.path(path, "HRlist2.txt"))
-dat5 <- read_csv(file.path(path, "HRlist2.txt"), col_name = TRUE)
+dat5 <- read_csv(file.path(path, "HRlist2.txt"), col_names = TRUE)
 
 #
 #

@@ -1,3 +1,15 @@
+# Standalone setup, previously inherited from earlier lessons.
+library(tidyverse)
+library(HistData)
+data("GaltonFamilies")
+set.seed(1983)
+galton_heights <- GaltonFamilies %>%
+  filter(gender == "male") %>% group_by(family) %>% sample_n(1) %>%
+  ungroup() %>% select(father, childHeight) %>% rename(son = childHeight)
+library(Lahman)
+library(broom)
+library(gridExtra)
+
 #practice
 dat <- Teams %>% filter(yearID %in% 1961:2001) %>%
   mutate(HR_per_game = HR / G, 

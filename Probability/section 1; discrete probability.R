@@ -42,7 +42,7 @@ sample(beads,1)
 #Outcome: *one random sample
 sample(beads,15)
 #Outcome: *respectively 15 samples
-sample(beads,16)
+try(sample(beads,16)) # Expected without-replacement error; continue.
 #Error in sample.int(length(x), size, replace, prob) : 
 #cannot take a sample larger than the population when 'replace = FALSE'
 

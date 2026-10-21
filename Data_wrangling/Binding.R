@@ -12,7 +12,7 @@ data("polls_us_election_2016")
 tab <- left_join(murders, results_us_election_2016, by = "state")
 
 
-bind_cols(a = 1:3, b = 4:5) # must be the same dimension (or numbers)
+try(bind_cols(a = 1:3, b = 4:5)) # Deliberate error: unequal lengths; continue the lesson.
 # Error in `bind_cols()`:
 #   ! Can't recycle `a` (size 3) to match `b` (size 2).
 

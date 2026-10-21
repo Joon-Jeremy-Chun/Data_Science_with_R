@@ -1,3 +1,6 @@
+# Explicit dependencies for an independent R session (2026 maintenance).
+library(ggplot2)
+
 #Correlations can be caused by outliers.
 #The Spearman correlation is calculated based on the ranks of data.
 

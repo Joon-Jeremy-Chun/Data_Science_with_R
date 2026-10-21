@@ -1,3 +1,6 @@
+# Explicit dependencies for an independent R session (2026 maintenance).
+library(tidyverse)
+
 #Objectives, notes from the textbook
 #The extract() function behaves similarly to the separate() function but allows extraction of groups from regular expressions.
 

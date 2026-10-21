@@ -76,9 +76,10 @@ help(prod)
 #Mathematical reasoning
 #The probability for duplicated birthday is same with the probability that 1 - all members are unique.
 exact_prob <- function(n){
-  prob_unique <- seq(365,365-n+1)/365
-  1- prod(prob_unique)
+  stopifnot(length(n)==1L, is.finite(n), n >= 0, n == floor(n))
+  if (n > 365) return(1)
+  1 - prod((365 - seq_len(n) + 1)/365)
 }
-exact_prob <- sapply(n, exact_prob)
-qplot(n, prob) + geom_line(aes(n, exact_prob), col="red")
+exact_probs <- sapply(n, exact_prob)
+qplot(n, prob) + geom_line(aes(n, exact_probs), col="red")
 help(sapply)

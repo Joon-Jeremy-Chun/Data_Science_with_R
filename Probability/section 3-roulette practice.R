@@ -11,7 +11,7 @@ abs(6 --1) * sqrt(5/38 * (38-5)/38)
 #[1] 2.366227
 
 #(need think this way) why not mach with?
-sqrt((6 - m)^2*5/38 + ((-1) - m)^2*32/38)
+sqrt((6 - m)^2*5/38 + ((-1) - m)^2*33/38)
 #[1] 2.361505
 
 #standard err of average payout over 500 bets
@@ -56,6 +56,8 @@ sum(X)
 #and the probability that the casino gain 0 or negative gaining.
 n <- 1000
 B <- 10000
+# Reset the wheel: this later section models an ordinary 18/18/2 casino game.
+color <- rep(c("Black", "Red", "Green"), c(18, 18, 2))
 roulette_gains <- function(n){
   X <- sample(ifelse(color == "Red", -1, 1), n, replace = TRUE)
   sum(X)

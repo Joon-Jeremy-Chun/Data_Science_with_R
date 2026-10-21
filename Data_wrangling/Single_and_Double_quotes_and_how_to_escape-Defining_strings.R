@@ -7,7 +7,7 @@
 #Examples
 s1 <- "Hello!"
 s2 <- "Hello!"
-s3 <- `Hello!`
+s3 <- try(`Hello!`) # Deliberate error: backticks refer to a name, not a string.
 #Error: object 'Hello!' not found
 
 #s4 <- "10"" #this will gives error

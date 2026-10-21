@@ -1,6 +1,6 @@
 #Objectives: data wrangling, creating data frames; use the 'data.frame()' function
 
-install.packages("dplyr")
+# Install dependencies explicitly with packages.R --install before this lesson.
 library(dplyr)
 
 # adding a column with mutate

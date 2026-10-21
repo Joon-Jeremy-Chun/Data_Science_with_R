@@ -1,3 +1,6 @@
+# Explicit dependencies for an independent R session (2026 maintenance).
+library(dplyr)
+
 #For this set of exercises, we examine the data from a 2014 PNAS paper that analyzed success rates from funding agencies in the Netherlands External link and concluded:
 
 #"our results reveal gender bias favoring male applicants over female applicants in the prioritization of their "quality of researcher" (but not "quality of proposal") evaluations and success rates, as well as in the language used in instructional and evaluation materials."
@@ -70,4 +73,3 @@ ggplot(dat, aes(x = discipline, y = success, color = gender, size = applications
        color = "Gender",
        size = "Number of Applications") +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
-

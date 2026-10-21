@@ -28,4 +28,7 @@ losses <- replicate(B, {
   sum(defaults * loss_per_foreclosure)
 })
 
-data.frame(losses/10^6) %>% ggplot(aes(losses)) + geom_histogram(color = "black", binwidth = 1*10^5)
+data.frame(losses_millions = losses/10^6) %>%
+  ggplot(aes(losses_millions)) +
+  geom_histogram(color="black", binwidth=0.2) +
+  labs(x="Total loss (million USD)", y="Replicates")

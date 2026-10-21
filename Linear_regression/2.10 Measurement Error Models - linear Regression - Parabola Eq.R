@@ -1,3 +1,7 @@
+# Explicit dependencies for an independent R session (2026 maintenance).
+library(tidyverse)
+library(broom)
+
 #Measurement Error Models
 #Up to now, all our linear regression examples have been applied to two or more random variables. We assume the pairs are bivariate normal and use this to motivate a linear model.
 #Another use for linear regression is with measurement error models, where it is common to have a non-random covariate (such as time). Randomness is introduced from measurement error rather than sampling or natural variability.

@@ -4,7 +4,8 @@ library(dslabs)
 
 # creating a function that computes the sum of integers 1 through n
 compute_s_n <- function(n){
-  x <- 1:n
+  stopifnot(length(n)==1L, is.finite(n), n >= 0, n == floor(n))
+  x <- seq_len(n)
   sum(x)
 }
 

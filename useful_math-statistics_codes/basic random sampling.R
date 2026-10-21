@@ -41,7 +41,7 @@ sample(beads,1)
 #Outcome: *one random sample
 sample(beads,9)
 #Outcome: *respectively 9 samples
-sample(beads,10)
+try(sample(beads,10)) # Expected without-replacement error; continue.
 #Error in sample.int(length(x), size, replace, prob) : 
 #cannot take a sample larger than the population when 'replace = FALSE'
 
@@ -53,4 +53,4 @@ b_table<- replicate(10000, sample(beads, 10, replace = TRUE))
 table(b_table)
 #Outcome: *randomly but in the ratio
 #green   red 
-#66388 33612 
+#66388 33612

@@ -1,3 +1,7 @@
+# Explicit dependencies for an independent R session (2026 maintenance).
+library(tidyverse)
+library(rvest)
+
 #Objectives, notes from the textbook
 #The most common tacks in string processing include:
 #-extracting numbers from strings

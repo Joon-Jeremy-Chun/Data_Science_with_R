@@ -1,3 +1,6 @@
+# Explicit dependencies for an independent R session (2026 maintenance).
+library(tidyverse)
+
 #Practice2
 set.seed(1989, sample.kind="Rounding") #if you are using R 3.6 or later
 library(HistData)

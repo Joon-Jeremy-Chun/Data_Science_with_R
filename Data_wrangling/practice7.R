@@ -6,7 +6,7 @@ data(brexit_polls)
 #
 x <- month(brexit_polls$startdate, label = TRUE)
 x
-sum(x == 4)
+sum(month(brexit_polls$startdate) == 4) # x has month labels, not numeric month codes.
 #
 sum(round_date(brexit_polls$enddate, unit = "week") == "2016-06-12")
 #
@@ -24,4 +24,3 @@ table(a)
 #
 b <- data.frame(hours = hour(z))
 table(b)
-

@@ -1,3 +1,6 @@
+# Explicit dependencies for an independent R session (2026 maintenance).
+library(tidyverse)
+
 # Least Squares Estimates (LSE)
 # Residual sum of squares (RSS) 
 

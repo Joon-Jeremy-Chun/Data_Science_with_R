@@ -119,13 +119,18 @@ library(lpSolve)
 
 players <- players %>% filter(debut <= "1997-01-01" & debut > "1988-01-01")
 constraint_matrix <- acast(players, POS ~ playerID, fun.aggregate = length)
+# acast sorts playerID columns; align them to the objective/salary row order.
+stopifnot(!anyDuplicated(players$playerID), setequal(colnames(constraint_matrix), players$playerID))
+constraint_matrix <- constraint_matrix[, players$playerID, drop=FALSE]
+stopifnot(identical(colnames(constraint_matrix), players$playerID))
 npos <- nrow(constraint_matrix)
 constraint_matrix <- rbind(constraint_matrix, salary = players$salary)
 constraint_dir <- c(rep("==", npos), "<=")
 constraint_limit <- c(rep(1, npos), 50*10^6)
 lp_solution <- lp("max", players$R_hat,
                   constraint_matrix, constraint_dir, constraint_limit,
-                  all.int = TRUE) 
+                  all.bin = TRUE)
+stopifnot(lp_solution$status == 0L)
 
 #
 our_team <- players %>%

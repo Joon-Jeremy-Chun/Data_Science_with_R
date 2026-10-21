@@ -6,7 +6,7 @@ library(tidyverse) #includes readr
 library(readxl)
 
 #inspect the first 3 lines
-read_lines("murders.csv", n_max = 3)
+read_lines(system.file("extdata", "murders.csv", package="dslabs"), n_max=3)
 
 #
 filename <- "murders.csv"
@@ -14,7 +14,7 @@ path <- system.file("extdata", package = "dslabs")
 fullpath <- file.path(path, filename)
 
 #read file in csv format
-dat <- read_csv(filename)
+dat <- read_csv(fullpath)
 
 #read using full path
 dat <- read_csv(fullpath)
@@ -32,7 +32,7 @@ dat2
 
 
 #R-base import functions (read.csv(), read.table(), read.delim()) generate data frames rather than tibbles.
-dat3 <- read.csv(filename)
+dat3 <- read.csv(fullpath)
 class(dat3$abb)
 #[1] "character"
 class(dat3$region)

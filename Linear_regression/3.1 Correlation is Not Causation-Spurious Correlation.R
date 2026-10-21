@@ -1,3 +1,6 @@
+# Explicit dependencies for an independent R session (2026 maintenance).
+library(tidyverse)
+
 #Summary from the text book
 #Association/correlation is not causation.
 #p-hacking is a topic of much discussion because it is a problem in scientific publications.
